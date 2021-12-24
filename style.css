@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.navbar {
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar img {
+  width: 90px;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  z-index: 2;
+}
+
+.navbar .sign {
+  margin-right: 20px;
+}
+
+.navbar ul li {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.navbar ul a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 10px;
+}
+
+.navbar ul li::before {
+  content: '';
+
+  position: absolute;
+
+  width: 0;
+  height: 100%;
+
+  
+  background-color: rgb(0, 102, 255);
+  
+  left: 50%;
+  top: 96%;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  transform: translate(-50%,0);
+  transform-origin: left;
+  transition: all ease-in-out 200ms;
+}
+
+.navbar ul li:hover::before {
+  width: 100%;
+}
+
+label #btn,
+label #cancel {
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  display: none;
+}
+
+label #btn {
+  background-color: rgb(39, 45, 61);
+  border-radius: 10px;
+}
+
+#check {
+  display: none;
+} 
+
+@media (max-width: 630px){
+  label #btn {
+    display: block;
+    padding: 8px;
+  }
+
+  .navbar {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    height: 60px;
+    z-index: 2;
+    background: rgba(49, 51, 70);
+  }
+
+  .navbar img {
+    width: 50px;
+    padding: 0;
+  }
+
+  .navbar ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(49, 51, 70);
+    color: white;
+    top: 60px;
+    left: -110%;
+    transition: all ease-in-out 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar ul li {
+    display: block;
+  }
+
+  .navbar ul li::before {
+    transition: all ease-in-out 500ms;
+  }
+  .navbar {
+    display: flex;
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
+  #check:checked ~ label #btn {
+    display: none;
+  }
+  #check:checked ~ label #cancel {
+    display: block;
+  }
+}
+
+.content-1 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 22px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.content-1 h1 {
+  border-top: 2px solid rgb(188, 125, 218);
+  margin: auto;
+  display: block;
+  padding: 10px;
+}
+
+.content-1 h2 {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.content-1 .titles {
+  margin: 40px;
+}
+
+.btn {
+  padding: 15px 70px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  background-color: rgb(255, 112, 29);
+  color: white;
+  transition: all ease-in-out 200ms;
+}
+.btn i {
+  font-size: 20px;
+  padding-left: 10px;
+  animation: move-right 1s ease-in-out alternate infinite;
+}
+
+@keyframes move-right {
+  from {
+    transform: translate(10px, 1px);
+  }to {
+    transform: translate(20px, 1px);
+  }
+}
+
+.btn:hover {
+  background-color: rgb(255, 143, 79);
+}
